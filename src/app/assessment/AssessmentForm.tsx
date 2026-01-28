@@ -13,8 +13,10 @@ import SectionIntro from './components/SectionIntro';
 import NavigationButtons from './components/NavigationButtons';
 import ResultsScreen from './components/ResultsScreen';
 import QuestionRenderer from './components/QuestionRenderer';
+import WelcomeScreen from './components/WelcomeScreen';
 
 type StepItem =
+  | { type: 'welcome' }
   | { type: 'section-intro'; section: HydratedSection; sectionIndex: number }
   | { type: 'question'; question: HydratedFormQuestion; sectionIndex: number; sectionTitle: string }
   | { type: 'results' };
@@ -53,6 +55,8 @@ export default function AssessmentForm() {
 
         // Flatten sections into steps
         const flatSteps: StepItem[] = [];
+        // Add welcome screen as first step
+        flatSteps.push({ type: 'welcome' });
         data.sections.forEach((section, sIdx) => {
           flatSteps.push({ type: 'section-intro', section, sectionIndex: sIdx });
           section.questions.forEach((q) => {
@@ -172,7 +176,9 @@ export default function AssessmentForm() {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Enter') {
         e.preventDefault();
-        if (currentStepItem?.type === 'section-intro') {
+        if (currentStepItem?.type === 'welcome') {
+          goNext();
+        } else if (currentStepItem?.type === 'section-intro') {
           goNext();
         } else if (currentStepItem?.type === 'question') {
           const ref = currentStepItem.question.questionRef;
@@ -299,7 +305,9 @@ export default function AssessmentForm() {
 
       {/* Content */}
       <div className="relative z-10 min-h-screen flex flex-col">
-        <ProgressBar currentIndex={currentQuestionIndex} total={totalQuestions} />
+        {currentStepItem.type !== 'welcome' && (
+          <ProgressBar currentIndex={currentQuestionIndex} total={totalQuestions} />
+        )}
 
         {currentStepItem.type === 'question' && (
           <TopBar sectionNumber={sectionIndex + 1} sectionTitle={sectionTitle} />
@@ -319,6 +327,10 @@ export default function AssessmentForm() {
           }`}
         >
           <div className="w-full max-w-5xl">
+            {currentStepItem.type === 'welcome' && (
+              <WelcomeScreen onStart={goNext} />
+            )}
+
             {currentStepItem.type === 'section-intro' && (
               <SectionIntro
                 section={currentStepItem.section}

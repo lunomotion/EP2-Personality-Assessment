@@ -26,46 +26,41 @@ export default function TableChoice({ question, currentAnswer, onAnswer }: Quest
         <table className="w-full text-sm">
           <thead>
             <tr className="bg-white/5 border-b border-white/10">
-              <th className="px-4 py-3 text-left text-white/70 font-semibold">Animal</th>
-              <th className="px-4 py-3 text-left text-white/70 font-semibold">Hunting Group Size</th>
-              <th className="px-4 py-3 text-left text-white/70 font-semibold">Success Rate</th>
-              <th className="px-4 py-3 text-left text-white/70 font-semibold">Risk</th>
-              <th className="px-4 py-3 text-left text-white/70 font-semibold">Reward</th>
-              <th className="px-4 py-3 text-left text-white/70 font-semibold">Time to Materialize</th>
+              <th className="px-4 py-3 text-center text-white/70 font-semibold">Hunting<br/>Group Size</th>
+              <th className="px-4 py-3 text-center text-white/70 font-semibold">Success<br/>Rate</th>
+              <th className="px-4 py-3 text-center text-white/70 font-semibold">Risk</th>
+              <th className="px-4 py-3 text-center text-white/70 font-semibold">Reward</th>
+              <th className="px-4 py-3 text-center text-white/70 font-semibold">Time to<br/>Materialize</th>
             </tr>
           </thead>
           <tbody>
             <tr className="border-b border-white/5 hover:bg-white/5 transition-colors">
-              <td className="px-4 py-3 text-white font-medium">Tiger</td>
-              <td className="px-4 py-3 text-white/80">Solo</td>
-              <td className="px-4 py-3 text-white/80">8%</td>
-              <td className="px-4 py-3 text-red-400 font-medium">Very High</td>
-              <td className="px-4 py-3 text-green-400 font-medium">100% Keep</td>
-              <td className="px-4 py-3 text-white/80">1-2 Years</td>
+              <td className="px-4 py-3 text-white/80 text-center">1</td>
+              <td className="px-4 py-3 text-white/80 text-center">8%</td>
+              <td className="px-4 py-3 text-white/80 text-center">92%</td>
+              <td className="px-4 py-3 text-white/80 text-center">100%</td>
+              <td className="px-4 py-3 text-white/80 text-center">1-2 Years</td>
             </tr>
             <tr className="border-b border-white/5 hover:bg-white/5 transition-colors">
-              <td className="px-4 py-3 text-white font-medium">Lion</td>
-              <td className="px-4 py-3 text-white/80">2-3</td>
-              <td className="px-4 py-3 text-white/80">25%</td>
-              <td className="px-4 py-3 text-orange-400 font-medium">High</td>
-              <td className="px-4 py-3 text-yellow-400 font-medium">70% Share</td>
-              <td className="px-4 py-3 text-white/80">6-12 Months</td>
+              <td className="px-4 py-3 text-white/80 text-center">5</td>
+              <td className="px-4 py-3 text-white/80 text-center">30%</td>
+              <td className="px-4 py-3 text-white/80 text-center">70%</td>
+              <td className="px-4 py-3 text-white/80 text-center">20%</td>
+              <td className="px-4 py-3 text-white/80 text-center">6-12 Months</td>
             </tr>
             <tr className="border-b border-white/5 hover:bg-white/5 transition-colors">
-              <td className="px-4 py-3 text-white font-medium">African Wild Dog</td>
-              <td className="px-4 py-3 text-white/80">10-20</td>
-              <td className="px-4 py-3 text-white/80">85%</td>
-              <td className="px-4 py-3 text-green-400 font-medium">Low</td>
-              <td className="px-4 py-3 text-white/60 font-medium">15% Share</td>
-              <td className="px-4 py-3 text-white/80">3-6 Months</td>
+              <td className="px-4 py-3 text-white/80 text-center">20</td>
+              <td className="px-4 py-3 text-white/80 text-center">80%</td>
+              <td className="px-4 py-3 text-white/80 text-center">20%</td>
+              <td className="px-4 py-3 text-white/80 text-center">5%</td>
+              <td className="px-4 py-3 text-white/80 text-center">0-6 Months</td>
             </tr>
             <tr className="hover:bg-white/5 transition-colors">
-              <td className="px-4 py-3 text-white font-medium">Killer Whale</td>
-              <td className="px-4 py-3 text-white/80">5-30</td>
-              <td className="px-4 py-3 text-white/80">90%</td>
-              <td className="px-4 py-3 text-yellow-400 font-medium">Medium</td>
-              <td className="px-4 py-3 text-yellow-400 font-medium">50% Share</td>
-              <td className="px-4 py-3 text-white/80">6-18 Months</td>
+              <td className="px-4 py-3 text-white/80 text-center">4</td>
+              <td className="px-4 py-3 text-white/80 text-center">95%</td>
+              <td className="px-4 py-3 text-white/80 text-center">5%</td>
+              <td className="px-4 py-3 text-white/80 text-center">25%</td>
+              <td className="px-4 py-3 text-white/80 text-center">2+ Years</td>
             </tr>
           </tbody>
         </table>
@@ -76,6 +71,7 @@ export default function TableChoice({ question, currentAnswer, onAnswer }: Quest
         {optionKeys.map((key, index) => {
           const isSelected = currentAnswer === key;
           const letter = String.fromCharCode(65 + index);
+          const rowLabel = `Row #${index + 1}`;
 
           return (
             <button
@@ -96,7 +92,7 @@ export default function TableChoice({ question, currentAnswer, onAnswer }: Quest
               >
                 {letter}
               </div>
-              <span className="text-white font-medium text-sm">{options[key]}</span>
+              <span className="text-white font-medium text-sm">{rowLabel}</span>
             </button>
           );
         })}
