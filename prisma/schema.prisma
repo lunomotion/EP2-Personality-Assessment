@@ -1,0 +1,150 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// EP2 Assessment Report
+model Report {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Animal personality
+  animalType       String
+  personalityTitle String
+  personalityText  String  @db.Text
+  traits           String[] // Array of trait strings
+
+  // Risk assessment
+  riskLevel    String
+  riskScore    Int
+  riskCategory String
+  riskText     String @db.Text
+
+  // Reward assessment
+  rewardLevel    String
+  rewardScore    Int
+  rewardCategory String
+  rewardText     String @db.Text
+
+  // Entrepreneurial driver
+  driverKey         String
+  driverTitle       String
+  driverDescription String   @db.Text
+  driverQuestions   String[] // Array of question strings
+
+  // Primary Area of Interest
+  aoi1Key         String
+  aoi1Title       String
+  aoi1Description String   @db.Text
+  aoi1Businesses  String[] // Array of business ideas
+
+  // Secondary Area of Interest
+  aoi2Key         String
+  aoi2Title       String
+  aoi2Description String   @db.Text
+  aoi2Businesses  String[] // Array of business ideas
+
+  // Business Strategy
+  strategyKey         String
+  strategyTitle       String
+  strategyDescription String   @db.Text
+  strategyActions     String[] // Array of action items
+
+  // Raw Typeform data for reference
+  rawData Json?
+
+  // Server scoring fields
+  scoringMethod String  @default("typeform")
+  rawAnswers    Json?
+
+  @@index([email])
+  @@index([createdAt])
+}
+
+// Scoring configuration - single row with JSON fields
+model ScoringConfig {
+  id                 String   @id @default("default")
+  version            Int      @default(1)
+  updatedAt          DateTime @updatedAt
+  riskQuestions      Json     // Array of RiskRewardQuestion
+  rewardQuestions    Json     // Array of RiskRewardQuestion
+  fourTypesQuestions Json     // Array of FourTypesQuestion
+  tieBreakerConfig   Json     // TieBreakerConfig
+  riskThresholds     Json     // ThresholdConfig
+  rewardThresholds   Json     // ThresholdConfig
+  surveyQuestions    Json?    // Non-scored question categories
+}
+
+// Content tables
+model AnimalTypeContent {
+  id          String   @id @default(cuid())
+  key         String   @unique // e.g. "African Dog", "Lion", etc.
+  title       String
+  description String   @db.Text
+  traits      String[]
+  updatedAt   DateTime @updatedAt
+}
+
+model RiskLevelContent {
+  id          String   @id @default(cuid())
+  key         String   @unique // "Low", "Medium", "High"
+  title       String
+  description String   @db.Text
+  updatedAt   DateTime @updatedAt
+}
+
+model RewardLevelContent {
+  id          String   @id @default(cuid())
+  key         String   @unique // "Low", "Medium", "High"
+  title       String
+  description String   @db.Text
+  updatedAt   DateTime @updatedAt
+}
+
+model DriverContent {
+  id          String   @id @default(cuid())
+  key         String   @unique // "Boss", "Control", etc.
+  title       String
+  description String   @db.Text
+  questions   String[]
+  updatedAt   DateTime @updatedAt
+}
+
+model AOIContent {
+  id          String   @id @default(cuid())
+  key         String   @unique // "Arts", "Consulting", etc.
+  title       String
+  description String   @db.Text
+  businesses  String[]
+  updatedAt   DateTime @updatedAt
+}
+
+model StrategyContent {
+  id          String   @id @default(cuid())
+  key         String   @unique // "Creator", "Consolidator", etc.
+  title       String
+  description String   @db.Text
+  actions     String[]
+  updatedAt   DateTime @updatedAt
+}
+
+// Form configuration for native assessment form
+model FormConfig {
+  id              String   @id @default("default")
+  version         Int      @default(1)
+  updatedAt       DateTime @updatedAt
+  sections        Json     // FormSectionConfig[]
+  resultsPage     Json     // FormResultsConfig
+  backgroundImage String?
+  isLive          Boolean  @default(false)
+}

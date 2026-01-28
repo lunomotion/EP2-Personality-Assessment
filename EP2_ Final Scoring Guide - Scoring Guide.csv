@@ -1,0 +1,172 @@
+Used in scoring logic for results page?,Typeform Group,Order,Category,Construct,Survey Question,Scoring,Notes,African Wild Dog,Lion,Killer Whale,Tiger,Order in Survey
+,,1,,Tie Breakder (for the 4 Type questions),"Running a business is a lot like hunting out in the wild. 
+
+Below, you'll see a table of four different animals' hunting styles. Each one represents a different approach to business. 
+
+For example, in Row #1, the animal hunts alone and has a very low success rate (only 8%). But when the animal catches it's prey, it keeps 100% the reward. In business terms, this might mean taking bigger risks and needing 1-2 years to start seeing success in your business.
+
+Based on the table below, which row sounds MOST like your business personality?","Row #1 (A = Tiger)
+Row #2 (B = Lion)
+Row #3 (C = African Wild Dog)
+Row #4 (D = Killer Whale)
+
+-If someone selects an exact match to a tie breaker category (A, B, C, or D), then this letter breaks the tie.
+-If someone selects a letter that is NOT one of their tie letters, err on the side of moving UP to the closest tie letter (EXAMPLE: Tie of A and C, selects B, moves up to C results).",,,,,,
+Yes (Risk Score),1,2,Risk,Risk,A friend dares you to try karaoke in front of a crowd. Do you grab the mic or politely decline?,"A = No Way (1 point)
+B = Hell ya! (5 points)",,,,,,
+Yes (Risk Score),1,3,Risk,Risk,"You're running late and can either take a risky shortcut you don't know well, or take the longer familiar route. Which do you choose?","A = Stick with the familiar routine (1 point)
+B = Take the shortcut (5 points)",,,,,,
+Yes (Risk Score),1,4,Risk,Risk,You’re at a theme park staring at the tallest roller coaster. Do you get in line or find a calmer ride?,"A = Find a less scary ride (1 point)
+B = Hop in line! (5 points)",,,,,,
+Yes (Risk Score),1,5,Risk,Risk,You get invited to a networking mixer where you don’t know anyone. Do you show up anyway or skip it?,"A = Enjoy a night in (1 point)
+B = Join the party! (5 points)",,,,,,
+Yes (Risk Score),1,6,Risk,Risk,You're trying out a new restaurant. Do you order something you know you love (like a burger) or try something new (chef's special)?,"A = Stick with my usual (1 point)
+B = Spice things up (5 points)",,,,,,
+Yes (Risk Score),1,7,Risk,Risk,I value financial security more than the chance of a big bonus.,"1 = Not at all like me (5 points)
+2 = A little like me (4 points)
+3 = Somewhat like me (3 points)
+4 = Usually like me (2 points)
+5 = Exactly like me (1 point)",Reverse scored,,,,,
+Yes (Risk Score),1,8,Risk,Risk,I prefer stability over uncertainty.,"1 = Not at all like me (5 points)
+2 = A little like me (4 points)
+3 = Somewhat like me (3 points)
+4 = Usually like me (2 points)
+5 = Exactly like me (1 point)",Reverse scored,,,,,
+Yes (Risk Score),1,9,Risk,Risk,I enjoy pushing myself beyond what feels comfortable.,"1 = Not at all like me (1 point)
+2 = A little like me (2 points)
+3 = Somewhat like me (3 points)
+4 = Usually like me (4 points)
+5 = Exactly like me (5 points)",,,,,,
+Yes (Risk Score),1,10,Risk,Risk,I believe that risk is an essential part of growth and success.,"1 = Not at all like me (1 point)
+2 = A little like me (2 points)
+3 = Somewhat like me (3 points)
+4 = Usually like me (4 points)
+5 = Exactly like me (5 points)",,,,,,
+Yes (Risk Score),1,11,Risk,Risk,I often make impulsive decisions.,"1 = Not at all like me (1 point)
+2 = A little like me (2 points)
+3 = Somewhat like me (3 points)
+4 = Usually like me (4 points)
+5 = Exactly like me (5 points)",,,,,,
+Yes (Reward Score),2,11,Reward,Reward,"A promotion would come with a huge raise, but also 60-hour weeks. Do you take it?","A = No, I need balance (1 point)
+B = Yes, I'd take it! (5 points)",,,,,,
+Yes (Reward Score),2,12,Reward,Reward,Your startup could attract investors fast if you pivot away from your original mission. Do you pivot or stay true to your purpose?,"A = Stay put (1 point)
+B = Pivot (5 points)",,,,,,
+Yes (Reward Score),2,13,Reward,Reward,You’ve reached your financial goals. Do you keep chasing more success or switch focus to personal interests?,"A = Switch it up (1 point)
+B = Push forward (5 points)",,,,,,
+Yes (Reward Score),2,14,Reward,Reward,"When I wake up every day, I want to: 
+-Change the World
+-Reach Personal Financial Success.","A = Change the world (1 point)
+B = Reach personal financial success (5 points)",,,,,,
+Yes (Reward Score),2,15,Reward,Reward,"You have two options: 
+1) Start a business by yourself, keeping all the profits.
+2) Bring in co-founders who might double the success but split the reward.","A = #1 By Yourself (5 points)
+B = #2 Add Co-Founder (1 point)",Reverse scored,,,,,
+Yes (Reward Score),2,16,Reward,Reward,I'm always focusing on how to get the best results possible.,"1 = Not at all like me (1 point)
+2 = A little like me (2 points)
+3 = Somewhat like me (3 points)
+4 = Usually like me (4 points)
+5 = Exactly like me (5 points)",,,,,,
+Yes (Reward Score),2,17,Reward,Reward,I’d rather split success with others if it means achieving something bigger.,"1 = Not at all like me (5 points)
+2 = A little like me (4 points)
+3 = Somewhat like me (3 points)
+4 = Usually like me (2 points)
+5 = Exactly like me (1 point)",Reverse scored,,,,,
+Yes (Reward Score),2,18,Reward,Reward,I’m more motivated by the achievement of the team than by personal prestige.,"1 = Not at all like me (5 points)
+2 = A little like me (4 points)
+3 = Somewhat like me (3 points)
+4 = Usually like me (2 points)
+5 = Exactly like me (1 point)",Reverse scored,,,,,
+Yes (Reward Score),2,19,Reward,Reward,Personal achievement is one of my primary drivers in life.,"1 = Not at all like me (1 point)
+2 = A little like me (2 points)
+3 = Somewhat like me (3 points)
+4 = Usually like me (4 points)
+5 = Exactly like me (5 points)",,,,,,
+Yes (Reward Score),2,20,Reward,Reward,Earning more money drives me to perform better.,"1 = Not at all like me (1 point)
+2 = A little like me (2 points)
+3 = Somewhat like me (3 points)
+4 = Usually like me (4 points)
+5 = Exactly like me (5 points)",,,,,,
+No,3,21,"Why - Personality, Big 5","Openness to Experience: This trait reflects imagination, curiosity, and a preference for novelty and variety. People high in openness enjoy abstract thinking and are open to new ideas, while those low in openness prefer routine and tradition.​","A: I enjoy change
+B: I prefer routine",Openness to Experience (opposite: Conventionality / Routine‑oriented),,,,,,
+No,3,22,"Why - Personality, Big 5","Conscientiousness: This describes self-discipline, organization, and goal-directed behavior. Highly conscientious individuals are dependable and thorough, while those low in conscientiousness may be more spontaneous or disorganized.​","A: I'm very self-disciplined
+B: I jump in without thinking",Conscientiousness (opposite: Spontaneity / Carelessness),,,,,,
+No,3,23,"Why - Personality, Big 5","Extraversion: This trait involves sociability, energy from social interaction, and assertiveness. Extraverts are outgoing and enjoy being around others, while introverts prefer solitude or small groups.​","A: I thrive around other people
+B: I prefer quiet solitude",Extraversion (opposite: Introversion),,,,,,
+No,3,24,"Why - Personality, Big 5","Agreeableness: This measures compassion, cooperativeness, and trust in relationships. Agreeable people are empathetic and helpful, while those low in agreeableness may be more competitive or skeptical.​","A: I'm generally cooperative
+B: I'm generally assertive",Agreeableness (opposite: Detachment / Competitiveness),,,,,,
+No,3,25,"Why - Personality, Big 5","Neuroticism: This trait relates to emotional stability and how prone someone is to stress, anxiety, or mood swings. High neuroticism means a person is more sensitive to distress, while low neuroticism is associated with emotional resilience.","A: I worry easily
+B: I rarely experience anxiety",Neuroticism (opposite: Emotional Stability),,,,,,
+Yes (The 4 Types),4,26,The 4 Types,The 4 Types,"When you picture your ideal business setup, what appeals to you most?","There are 10 'Type' questions. Answers are A, B, C, or D in mixed order each time. Whichever the person selects the most of (mostly As, Mostly Cs, etc.) is what the results should show as their 'Type'.",,"A small, tight-knit partnership where everyone shares responsibility and profit.","A visible leadership role at the top of a loyal, committed team.","A lean, expert group focused on long-term strategy and efficiency.",Running solo or with minimal support so you keep control and upside.,ABCD
+Yes (The 4 Types),4,27,The 4 Types,The 4 Types,"When you think about failure in business, what best describes your attitude?","There are 10 'Type' questions. Answers are A, B, C, or D in mixed order each time. Whichever the person selects the most of (mostly As, Mostly Cs, etc.) is what the results should show as their 'Type'.",,"Avoid big failures by taking smaller, safer steps with others.",Accept some failure as the cost of making progress with the team.,"Design strategies so failures are rare, contained, and mostly anticipated.",See failure as battle scars you expect to collect on the way to big wins.,DCAB
+Yes (The 4 Types),4,28,The 4 Types,The 4 Types,How do you prefer your business to grow?,"There are 10 'Type' questions. Answers are A, B, C, or D in mixed order each time. Whichever the person selects the most of (mostly As, Mostly Cs, etc.) is what the results should show as their 'Type'.",,"Steady, reliable growth that keeps the group stable and secure.",Consistent growth that stretches the team but doesn’t overwhelm them.,"Slow, deliberate growth that compounds over time through smart positioning.","Fast, aggressive growth, even if it’s chaotic and demanding.",ADBC
+Yes (The 4 Types),4,29,The 4 Types,The 4 Types,How would you like to use your personal energy as an entrepreneur?,"There are 10 'Type' questions. Answers are A, B, C, or D in mixed order each time. Whichever the person selects the most of (mostly As, Mostly Cs, etc.) is what the results should show as their 'Type'.",,"Share the load, distribute tasks, and avoid burning out alone.","Direct the group’s energy, motivate people, and lead from the front.","Conserve energy, make calculated moves, and only strike when the odds are strong.","Go all-in, work intensely, and push hard through obstacles.",BADC
+Yes (The 4 Types),4,30,The 4 Types,The 4 Types,"When you face an unclear, high-ambiguity situation, what do you tend to do?","There are 10 'Type' questions. Answers are A, B, C, or D in mixed order each time. Whichever the person selects the most of (mostly As, Mostly Cs, etc.) is what the results should show as their 'Type'.",,Stay close to collaborators and avoid going too far beyond what’s known.,Guide others through the uncertainty with structured plans and morale.,"Pause, observe, gather intelligence, and wait for the right opening.","Charge ahead, test boundaries, and learn by doing, even if it hurts.",ABCD
+Yes (The 4 Types),4,31,The 4 Types,The 4 Types,"When you feel strongly about an idea, what do you usually do first?","There are 10 'Type' questions. Answers are A, B, C, or D in mixed order each time. Whichever the person selects the most of (mostly As, Mostly Cs, etc.) is what the results should show as their 'Type'.",,Run it by a few trusted people to see what they think before moving.,Share it confidently with the team and try to get everyone behind it.,Quietly test it in your head or on paper before telling anyone.,"Act on it quickly, then figure out the details as you go.",DABC
+Yes (The 4 Types),4,32,The 4 Types,The 4 Types,"In a dream world, where will you be in 10 years as an entrepreneur?","There are 10 'Type' questions. Answers are A, B, C, or D in mixed order each time. Whichever the person selects the most of (mostly As, Mostly Cs, etc.) is what the results should show as their 'Type'.",,"Working with a familiar, trusted group in a secure business.",Leading a strong organization with a loyal team around you.,"Running a well-positioned, efficient operation that steadily compounds value.","Having taken big swings, either enjoying major success or gearing up for the next big attempt.",CDAB
+Yes (The 4 Types),4,33,The 4 Types,The 4 Types,How do you prefer to grow as a business owner?,"There are 10 'Type' questions. Answers are A, B, C, or D in mixed order each time. Whichever the person selects the most of (mostly As, Mostly Cs, etc.) is what the results should show as their 'Type'.",,"Learn from your close circle, mentors, and peer collaboration.",Learn by leading new initiatives and getting feedback from your team.,"Learn through research, data, and studying others’ strategies.",Learn by jumping into challenging situations and figuring it out under pressure.,ABDC
+Yes (The 4 Types),4,34,The 4 Types,The 4 Types,"When you look back at your proudest work moment, what made it satisfying?","There are 10 'Type' questions. Answers are A, B, C, or D in mixed order each time. Whichever the person selects the most of (mostly As, Mostly Cs, etc.) is what the results should show as their 'Type'.",,"Was a significant contributor to a highly successful win, with a big group of players/ team members","Led a project or team to a major success.
+
+",Designed a long term plan or project with a group that was perfectly executed with grand success,"Pulling off a big, risky move that paid off in a noticeable way.",ADBC
+Yes (The 4 Types),4,35,The 4 Types,The 4 Types,How have you felt about rules and processes in your past jobs?,"There are 10 'Type' questions. Answers are A, B, C, or D in mixed order each time. Whichever the person selects the most of (mostly As, Mostly Cs, etc.) is what the results should show as their 'Type'.",,Appreciate clear rules that keep the group coordinated and safe.,Prefer structure that supports the team but allows leadership flexibility.,Value well-designed processes and systems that make work smoother.,Tolerate structure only if it doesn’t slow you down too much.,DCBA
+No,5,36,Why - Personality Trait,Personality (Games),Which games do you like to play?,Rank Order (highest to lowest),,,,,,
+Yes (Driver),5,37,Why - Passion/Motivation,Passion/Motivation,"Why do you want to become an entrepreneur?
+-Be my own boss
+-Control my time & schedule
+-Turn passion into income
+-Earn more money
+-Solve a problem
+-Have a positive social impact
+-Build a legacy",Single-select. Whichever one the person selects should show in the results.,,,,,,
+No,5,38,Why - Personality Trait,Creative,I can easily sit down and create something artistic from scratch.,"1 = not at all me, 7 = very much me",,,,,,
+No,5,39,Why - Personality Trait,Analytical/Tactical,I could spend hours working in Excel spreadsheets.,"1 = not at all me, 7 = very much me",,,,,,
+No,5,40,Why - Personality Trait,Relational/People oriented,"When I'm in a group setting, I'm always paying attention to how others are feeling.","1 = not at all me, 7 = very much me",,,,,,
+No,5,41,Why - Personality Trait,Obsessive,"When I have an idea or goal, I can't stop thinking about it. It becomes an obsession.","1 = not at all me, 7 = very much me",,,,,,
+Yes (Area of Interest / AOI),6,42,What - AOI,,"Regardless of what you've done in the past, which fields interest you when it comes to entrepreneurship?
+
+-Arts & Culture (design, restoration, events, supplies)
+-Consulting (accounting, law, business, personal)
+-Digital Services (graphic design, coding, website)
+-Education (teaching, tutoring, test prep)
+-Food & Hospitality (restaurant, hotel, travel & leisure)
+-Health (caregiving, personal training, medical)
+-Personal & Home (landscaping, pet care, salon)
+-Retail (clothes, ecommerce, physical & digital goods)
+-Social (environmental, political, activism)
+-Technology (IT, software, SaaS, AI)
+-Trades (plumbing, HVAC, construction)",Single-select. Whichever one the person selects should show in the results.,,,,,,
+No,6,43,What - AOI,,"If you had to choose a SECOND option, what would it be?
+
+-Arts & Culture (design, restoration, events, supplies)
+-Consulting (accounting, law, business, personal)
+-Digital Services (graphic design, coding, website)
+-Education (teaching, tutoring, test prep)
+-Food & Hospitality (restaurant, hotel, travel & leisure)
+-Health (caregiving, personal training, medical)
+-Personal & Home (landscaping, pet care, salon)
+-Retail (clothes, ecommerce, physical & digital goods)
+-Social (environmental, political, activism)
+-Technology (IT, software, SaaS, AI)
+-Trades (plumbing, HVAC, construction)",Rank Order (highest to lowest),,,,,,
+No,7,44,How - Tools,,"I imagine my business selling...
+-Physical products
+-Digital products
+-Services",1-3 Scale (interest),,,,,,
+No,7,45,How - Tools,,"I imagine selling my product or services...
+-B2B (Business to Business): Selling products or services to other businesses.
+-B2C (Business to Consumer): Selling directly to individual consumers.
+-D2C (Direct to Consumer): Producer/brand sells straight to consumers, bypassing retailers.
+-C2C (Consumer to Consumer): Individuals sell to other individuals via a platform (e.g., marketplaces).
+-B2G / B2P (Business to Government/Public Sector): Selling to government agencies or public institutions.",1-3 Scale (interest),,,,,,
+No,7,46,How - Tools,,"When I imagine my future business, I see myself...
+-Working alone
+-Building a team
+-Running a small business
+-Scaling as big as possible",1-3 Scale (interest),,,,,,
+Yes (Business Strategy),8,47,How - Tools,,"When I imagine my future business, I see myself as a...
+-Creator: Starting from scratch (new independent business you design, name, and build yourself).
+-Consolidator: Buying an existing business (acquire operations, customers, and systems already in place).
+-Franchisee: Buying into a franchise (operate under an established brand and playbook for fees/royalties).
+-Contractor: Starting as a contractor/freelancer/consultant (sell your skills, maybe formalize into a firm later).",Single-select. Whichever one the person selects should show in the results.,,,,,,
+No,9,48,What - AOI,,"In a dream world, who does your business help and how does it help them?",Open ended,,,,,,
+No,9,49,What - AOI,,What impact do you hope your future business has on your own life?,Open ended,,,,,,
+*To send report,10,50,,,What is your email?,,,,,,,

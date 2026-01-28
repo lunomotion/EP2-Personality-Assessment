@@ -1,0 +1,289 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --ep-purple: #533483;
+  --ep-blue: #0f3460;
+  --ep-navy: #16213e;
+  --ep-dark: #1a1a2e;
+  --ep-red: #e94560;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.5;
+  color: #333;
+}
+
+/* Gradient background for web view only */
+.ep-gradient {
+  background:
+    linear-gradient(135deg, rgba(26, 26, 46, 0.9) 0%, transparent 25%),
+    linear-gradient(225deg, rgba(15, 52, 96, 0.8) 0%, transparent 30%),
+    linear-gradient(315deg, rgba(233, 69, 96, 0.7) 0%, transparent 35%),
+    linear-gradient(45deg, rgba(83, 52, 131, 0.8) 0%, transparent 40%),
+    linear-gradient(180deg, rgba(22, 33, 62, 0.6) 0%, transparent 20%);
+  background-color: #f8f8f8;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Colorful border effect for web view only */
+.ep-gradient::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    linear-gradient(to right, #1a1a2e 0%, transparent 8%),
+    linear-gradient(to left, #0f3460 0%, transparent 8%),
+    linear-gradient(to bottom, #16213e 0%, transparent 5%),
+    linear-gradient(to top, #e94560 0%, transparent 8%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Report card container */
+.report-card {
+  @apply bg-white rounded-xl shadow-2xl;
+}
+
+/* Icon card with thick border */
+.icon-card {
+  @apply flex items-center justify-center rounded-lg overflow-hidden flex-shrink-0 bg-white;
+  border: 3px solid #333;
+}
+
+.icon-card-sm {
+  @apply w-14 h-14;
+}
+
+.icon-card-md {
+  @apply w-16 h-16;
+}
+
+.icon-card-lg {
+  @apply w-20 h-20;
+}
+
+/* Section styling */
+.report-section {
+  @apply flex gap-4 items-start;
+}
+
+.report-section-title {
+  @apply font-bold text-lg text-gray-900 mb-2;
+}
+
+.report-section-text {
+  @apply text-gray-700 leading-relaxed;
+}
+
+/* Bullet list styling */
+.bullet-list {
+  @apply space-y-2;
+}
+
+.bullet-list li {
+  @apply flex gap-2 text-gray-700;
+}
+
+.bullet-list li::before {
+  content: '•';
+  @apply text-ep-purple font-bold;
+}
+
+/* Animal traits diagram */
+.traits-diagram {
+  @apply relative w-72 h-72 mx-auto;
+}
+
+.trait-label {
+  @apply absolute font-bold text-lg text-gray-800 whitespace-nowrap;
+}
+
+.trait-top {
+  @apply top-0 left-1/2 -translate-x-1/2;
+}
+
+.trait-right {
+  @apply top-1/3 right-0 translate-x-full ml-2;
+}
+
+.trait-bottom-left {
+  @apply bottom-4 left-0 -translate-x-1/4;
+}
+
+.trait-bottom-right {
+  @apply bottom-1/4 right-0 translate-x-full mr-2;
+}
+
+/* Loading spinner */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loading-spinner {
+  animation: spin 1s linear infinite;
+}
+
+/* PDF Page - web view styling */
+.pdf-page {
+  @apply bg-white rounded-xl shadow-lg overflow-hidden mb-6;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.pdf-page-content {
+  @apply p-6;
+}
+
+/* Gradient stripe at bottom of cards */
+.gradient-stripe {
+  @apply h-2 bg-gradient-to-r from-ep-navy via-ep-purple to-ep-red;
+}
+
+/* Print styles for PDF generation */
+@media print {
+  @page {
+    size: A4;
+    margin: 0;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  body {
+    background: white !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Remove all backgrounds from containers */
+  .ep-gradient,
+  .print-mode {
+    background: none !important;
+    padding: 0 !important;
+    min-height: auto !important;
+  }
+
+  .ep-gradient::before {
+    display: none !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  /* Full page PDF cards with gradient background */
+  .pdf-page {
+    position: relative;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    margin: 0 !important;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+    background: linear-gradient(135deg,
+      rgba(83, 52, 131, 0.03) 0%,
+      rgba(255, 255, 255, 1) 30%,
+      rgba(255, 255, 255, 1) 70%,
+      rgba(15, 52, 96, 0.03) 100%) !important;
+  }
+
+  .pdf-page-content {
+    flex: 1;
+    padding: 40px 50px !important;
+  }
+
+  /* Gradient stripe */
+  .gradient-stripe {
+    height: 8px !important;
+    margin-top: auto;
+  }
+
+  /* Force page breaks between pages */
+  .page-break-after {
+    break-after: page !important;
+    page-break-after: always !important;
+  }
+
+  .page-break-before {
+    break-before: page !important;
+    page-break-before: always !important;
+  }
+
+  /* Keep sections together */
+  .keep-together {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  .icon-card {
+    border: 2px solid #333 !important;
+  }
+
+  /* Container should have no styles */
+  .max-w-4xl {
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+}
+
+/* Print mode via query param - for Puppeteer */
+.print-mode {
+  background: none !important;
+  padding: 0 !important;
+  min-height: auto !important;
+}
+
+.print-mode .ep-gradient::before {
+  display: none !important;
+}
+
+.print-mode .no-print {
+  display: none !important;
+}
+
+.print-mode .max-w-4xl {
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.print-mode .pdf-page {
+  position: relative;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  margin: 0 !important;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(135deg,
+    rgba(83, 52, 131, 0.04) 0%,
+    rgba(255, 255, 255, 1) 25%,
+    rgba(255, 255, 255, 1) 75%,
+    rgba(15, 52, 96, 0.04) 100%) !important;
+}
+
+.print-mode .pdf-page-content {
+  flex: 1;
+  padding: 40px 50px !important;
+}
+
+.print-mode .gradient-stripe {
+  height: 8px !important;
+  margin-top: auto;
+}

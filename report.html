@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EP2 Entrepreneurial Pursuit Assessment Report</title>
+    <style>
+        /* ============================================
+           PDF/Print Configuration for Gotenberg
+           Paper: A4 (8.27" x 11.69")
+           Margins: 0.4" all sides
+           Effective content area: 7.47" x 10.89"
+           ============================================ */
+
+        @page {
+            size: 8.27in 11.69in;
+            margin: 0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 8.27in;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: white;
+            color: #333;
+            line-height: 1.5;
+            font-size: 11pt;
+        }
+
+        /* Each page container */
+        .page {
+            width: 8.27in;
+            height: 11.69in;
+            padding: 0.4in;
+            page-break-after: always;
+            page-break-inside: avoid;
+            position: relative;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 25%, #0f3460 50%, #533483 75%, #e94560 100%);
+        }
+
+        .page:last-child {
+            page-break-after: auto;
+        }
+
+        /* Report card styling */
+        .report-card {
+            background: white;
+            border-radius: 12px;
+            padding: 16px 24px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 3px solid #e94560;
+        }
+
+        .ep-logo {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+
+        .ep-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .header-title {
+            text-align: center;
+        }
+
+        .header-title h1 {
+            font-family: 'Times New Roman', serif;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #1a1a2e;
+            letter-spacing: 0.5px;
+            line-height: 1.2;
+        }
+
+        /* Intro text */
+        .intro-text {
+            color: #555;
+            font-size: 0.85rem;
+            margin-bottom: 10px;
+            line-height: 1.45;
+            text-align: center;
+        }
+
+        /* Personality banner */
+        .personality-banner {
+            padding: 8px 16px;
+            display: inline-block;
+            margin-bottom: 20px;
+            border-left: 4px solid #1a1a2e;
+            align-self: center;
+        }
+
+        .personality-banner h2 {
+            font-family: 'Times New Roman', serif;
+            font-size: 1.6rem;
+            font-weight: bold;
+            color: #1a1a2e;
+        }
+
+        /* Content sections */
+        .content-area {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            min-height: 0;
+        }
+
+      .section.extra-margin-bottom {
+    margin-bottom: 24px; 
+}
+
+        .section {
+            display: flex;
+            gap: 14px;
+            margin-bottom: 12px;
+            align-items: flex-start;
+            page-break-inside: avoid;
+            flex: 1;
+            min-height: 0;
+        }
+
+        .section-icon {
+            flex-shrink: 0;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .section-icon img {
+            width: 110%;
+            height: 110%;
+            object-fit: cover;
+        }
+
+      .section-icon.animal-nowords {
+
+          border: 3px solid black;
+
+      }
+
+        .section-content {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .section-content h3 {
+            color: #1a1a2e;
+            font-size: 1.05rem;
+            margin-bottom: 6px;
+            font-weight: bold;
+            line-height: 1.3;
+        }
+
+        .section-content p {
+            color: #555;
+            font-size: 0.88rem;
+            line-height: 1.45;
+        }
+
+        /* Score badge - hidden for risk sections */
+        .score-badge {
+            display: none;
+        }
+
+        /* Lists */
+        .business-list, .action-list, .reflection-list {
+            list-style: disc;
+            margin-left: 18px;
+            margin-top: 6px;
+            padding-left: 0;
+        }
+
+        .business-list li, .action-list li, .reflection-list li {
+            color: #555;
+            margin-bottom: 4px;
+            font-size: 0.85rem;
+            line-height: 1.35;
+        }
+
+        /* Section titles */
+        .section-title {
+            font-family: 'Times New Roman', serif;
+            font-size: 1.15rem;
+            font-weight: bold;
+            color: #1a1a2e;
+            margin: 16px 0 12px 0;
+            padding-bottom: 5px;
+            border-bottom: 2px solid #e94560;
+          
+        }
+
+        .section-title:first-child {
+            margin-top: 0;
+        }
+
+        /* Gradient bar */
+        .gradient-bar {
+            height: 8px;
+            background: linear-gradient(90deg, #e94560, #533483, #0f3460, #16213e);
+            margin-top: 16px;
+            border-radius: 3px;
+            flex-shrink: 0;
+        }
+
+        /* Animal diagram for page 2 */
+        .animal-diagram {
+            text-align: center;
+            margin: 10px 0;
+        }
+
+        .animal-traits {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin: 8px 0;
+        }
+
+        .trait-label {
+            font-weight: bold;
+            font-size: 0.92rem;
+            color: #1a1a2e;
+            padding: 6px 14px;
+            background: #f5f5f5;
+            border-radius: 6px;
+            text-transform: capitalize;
+        }
+
+        .animal-icon-large {
+            width: 100%;
+            margin: 0px auto;
+            background: transparent;
+            border-radius: 0px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+       .animal-icon-large.traits {
+            margin: 0px auto;
+            background: transparent;
+            border-radius: 0px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+          margin-bottom: 16px;
+        }
+
+        .animal-icon-large img {
+            width: 13rem;
+            object-fit: cover;
+        }
+
+        /* Hide trait labels when animal image has words embedded */
+        .animal-diagram.has-words-image .animal-traits {
+            display: none;
+        }
+
+        /* Show trait labels when animal image doesn't have words (Lion) */
+        .animal-diagram.no-words-image .animal-traits {
+            display: flex;
+        }
+
+        /* Black square border for animal images without words (Lion) */
+        .animal-diagram.no-words-image .animal-icon-large {
+            border: 0px solid #1a1a2e;
+            border-radius: 0;
+            padding: 0px;
+            background: transparent;
+          width: auto;
+            height: auto;
+          margin-bottom: 0px;
+        }
+
+        /* Preview text style */
+        .preview-text {
+            color: #666;
+            font-style: italic;
+        }
+
+        /* What's Next box */
+        .whats-next-box {
+            text-align: center;
+            margin-top: auto;
+            padding: 30px 24px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 12px;
+            border: 2px solid #e94560;
+
+        }
+
+        .whats-next-box h3 {
+    color: #e94560; /* accent color */
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        .whats-next-box p {
+            color: #555;
+            font-size: 0.9rem;
+            line-height: 1.45;
+        }
+
+        /* Footer */
+        .page-footer {
+            text-align: center;
+            color: #888;
+            font-size: 0.8rem;
+            margin-top: 16px;
+            flex-shrink: 0;
+        }
+
+        /* Utility classes */
+        .mt-auto {
+            margin-top: auto;
+        }
+
+        .no-break {
+            page-break-inside: avoid;
+        }
+
+        /* Page-standard class for consistent styling across all pages */
+        .page-standard {
+            /* Uses base styles */
+        }
+
+        /* Print-specific styles for Gotenberg */
+        @media print {
+            html, body {
+                width: 8.27in;
+                height: auto;
+            }
+
+            .page {
+                width: 8.27in;
+                height: 11.69in;
+                margin: 0;
+                padding: 0.4in;
+                box-sizing: border-box;
+            }
+
+            .report-card {
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Page 1: Overview -->
+    <div class="page">
+        <div class="report-card page-standard">
+            <header class="header">
+                <div class="ep-logo"><img src="{{ $json.ep2Logo }}" alt="EP2 Logo"></div>
+                <div class="header-title">
+                    <h1>Entrepreneurial Pursuit<br>Assessment Report</h1>
+                </div>
+            </header>
+
+            <p class="intro-text">This report outlines your entrepreneur personality type and potential entrepreneurial opportunity that best fit your unique personality, based on your results of the EP2 Assessment.</p>
+
+            <div class="personality-banner">
+                <h2>You are a {{ $json.animalType }}</h2>
+            </div>
+
+            <div class="content-area">
+                <!-- Animal Type Section -->
+                <div class="section">
+                    <div class="section-icon animal-nowords">
+                        <img src="{{ $json.animalIcon }}" alt="{{ $json.animalType }}">
+                    </div>
+                    <div class="section-content">
+                        <h3>{{ $json.animalType }}: {{ $json.personalityTitle }}</h3>
+                        <p>{{ $json.personalityText }}</p>
+                    </div>
+                </div>
+
+                <!-- Risk Section -->
+                <div class="section">
+                    <div class="section-icon">
+                        <img src="{{ $json.riskIcon }}" alt="{{ $json.riskCategory }}">
+                    </div>
+                    <div class="section-content">
+                        <h3>{{ $json.riskCategory }}</h3>
+                        <p>{{ $json.riskText }}</p>
+                    </div>
+                </div> 
+
+                <!-- Reward Section -->
+                <div class="section extra-margin-bottom">
+                    <div class="section-icon">
+                        <img src="{{ $json.rewardIcon }}" alt="{{ $json.rewardCategory }}">
+                    </div>
+                    <div class="section-content">
+                        <h3>{{ $json.rewardCategory }}</h3>
+                        <p>{{ $json.rewardText }}</p>
+                    </div>
+                </div> 
+
+                <!-- Driver Preview -->
+                <div class="section">
+                    <div class="section-icon">
+                        <img src="{{ $json.driverIcon }}" alt="Driver">
+                    </div>
+                    <div class="section-content">
+                        <h3>Your EP Driver: {{ $json.driver1Title }}</h3>
+                        <p class="preview-text">{{ $json.driver1Description }}</p>
+                    </div>
+                </div>
+
+                <!-- AOI Preview -->
+                <div class="section">
+                    <div class="section-icon">
+                        <img src="{{ $json.aoi1Icon }}" alt="Area of Interest">
+                    </div>
+                    <div class="section-content">
+                        <h3>Your Areas of Interest</h3>
+                        <p><strong>1. {{ $json.aoi1Title }}</strong> &nbsp; <strong>2. {{ $json.aoi2Title }}</strong></p>
+                    </div>
+                </div>
+
+                <!-- Strategy Preview -->
+                <div class="section">
+                    <div class="section-icon">
+                        <img src="{{ $json.strategyIcon }}" alt="Strategy">
+                    </div>
+                    <div class="section-content">
+                        <h3>Your Business Strategy: {{ $json.strategyTitle }}</h3>
+                        <p class="preview-text">{{ $json.strategyDescription }}</p>
+                    </div>
+                </div>
+
+                <div class="gradient-bar"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page 2: Animal Type Detail -->
+    <div class="page">
+        <div class="report-card page-standard">
+            <header class="header">
+                <div class="ep-logo"><img src="{{ $json.ep2Logo }}" alt="EP2 Logo"></div>
+                <div class="header-title">
+                    <h1>Entrepreneurial Pursuit<br>Assessment Report</h1>
+                </div>
+            </header>
+
+            <h2 class="section-title">Your Entrepreneur Type</h2>
+
+            <div class="personality-banner">
+                <h2>You are a {{ $json.animalType }}</h2>
+            </div>
+
+            <div class="content-area">
+                <div class="animal-diagram {{ $json.animalDiagramClass }}">
+                    <div class="animal-traits">
+                        <span class="trait-label">{{ $json.trait1 }}</span>
+                        <span class="trait-label">{{ $json.trait2 }}</span>
+                    </div>
+                    <div class="animal-icon-large traits">
+                        <img src="{{ $json.animalIconWithWords }}" alt="{{ $json.animalType }}">
+                    </div>
+                    <div class="animal-traits">
+                        <span class="trait-label">{{ $json.trait3 }}</span>
+                        <span class="trait-label">{{ $json.trait4 }}</span>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="section-icon animal-nowords">
+                        <img src="{{ $json.animalIcon }}" alt="{{ $json.animalType }}">
+                    </div>
+                    <div class="section-content">
+                        <h3>{{ $json.animalType }}: {{ $json.personalityTitle }}</h3>
+                        <p>{{ $json.personalityText }}</p>
+                    </div>
+                </div>
+
+                <h2 class="section-title">Risk & Reward Profile</h2>
+
+                <div class="section">
+                    <div class="section-icon">
+                        <img src="{{ $json.riskIcon }}" alt="{{ $json.riskCategory }}">
+                    </div>
+                    <div class="section-content">
+                        <h3>{{ $json.riskCategory }}</h3>
+                        <p>{{ $json.riskText }}</p>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="section-icon">
+                        <img src="{{ $json.rewardIcon }}" alt="{{ $json.rewardCategory }}">
+                    </div>
+                    <div class="section-content">
+                        <h3>{{ $json.rewardCategory }}</h3>
+                        <p>{{ $json.rewardText }}</p>
+                    </div>
+                </div>
+
+                <div class="gradient-bar"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page 3: Driver & AOI Details -->
+    <div class="page">
+        <div class="report-card page-standard">
+            <header class="header">
+                <div class="ep-logo"><img src="{{ $json.ep2Logo }}" alt="EP2 Logo"></div>
+                <div class="header-title">
+                    <h1>Entrepreneurial Pursuit<br>Assessment Report</h1>
+                </div>
+            </header>
+
+            <div class="content-area">
+                <h2 class="section-title">Your Entrepreneurial Driver</h2>
+
+                <!-- Driver Details -->
+                <div class="section">
+                    <div class="section-icon">
+                        <img src="{{ $json.driverIcon }}" alt="Driver">
+                    </div>
+                    <div class="section-content">
+                        <h3>{{ $json.driver1Title }}</h3>
+                        <p>{{ $json.driver1Description }}</p>
+                        <p style="margin-top: 8px; font-weight: bold; font-size: 0.9rem;">Reflection Questions:</p>
+                        <ul class="reflection-list">
+                            <li>{{ $json.driver1Question1 }}</li>
+                            <li>{{ $json.driver1Question2 }}</li>
+                            <li>{{ $json.driver1Question3 }}</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h2 class="section-title">Areas of Interest</h2>
+
+                <!-- AOI 1 Details -->
+                <div class="section">
+                    <div class="section-icon">
+                        <img src="{{ $json.aoi1Icon }}" alt="{{ $json.aoi1Title }}">
+                    </div>
+                    <div class="section-content">
+                        <h3>{{ $json.aoi1Title }}</h3>
+                        <p>{{ $json.aoi1Description }}</p>
+                        <p style="margin-top: 8px; font-weight: bold; font-size: 0.9rem;">Business Ideas:</p>
+                        <ul class="business-list">
+                            <li>{{ $json.aoi1Business1 }}</li>
+                            <li>{{ $json.aoi1Business2 }}</li>
+                            <li>{{ $json.aoi1Business3 }}</li>
+                            <li>{{ $json.aoi1Business4 }}</li>
+                            <li>{{ $json.aoi1Business5 }}</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- AOI 2 Details -->
+                <div class="section">
+                    <div class="section-icon">
+                        <img src="{{ $json.aoi2Icon }}" alt="{{ $json.aoi2Title }}">
+                    </div>
+                    <div class="section-content">
+                        <h3>{{ $json.aoi2Title }}</h3>
+                        <p>{{ $json.aoi2Description }}</p>
+                        <p style="margin-top: 8px; font-weight: bold; font-size: 0.9rem;">Business Ideas:</p>
+                        <ul class="business-list">
+                            <li>{{ $json.aoi2Business1 }}</li>
+                            <li>{{ $json.aoi2Business2 }}</li>
+                            <li>{{ $json.aoi2Business3 }}</li>
+                            <li>{{ $json.aoi2Business4 }}</li>
+                            <li>{{ $json.aoi2Business5 }}</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="gradient-bar"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page 4: Business Strategy -->
+    <div class="page">
+        <div class="report-card page-standard">
+            <header class="header">
+                <div class="ep-logo"><img src="{{ $json.ep2Logo }}" alt="EP2 Logo"></div>
+                <div class="header-title">
+                    <h1>Entrepreneurial Pursuit<br>Assessment Report</h1>
+                </div>
+            </header>
+
+            <div class="content-area">
+                <h2 class="section-title">Your Business Strategy</h2>
+
+                <!-- Business Strategy Details -->
+                <div class="section">
+                    <div class="section-icon">
+                        <img src="{{ $json.strategyIcon }}" alt="{{ $json.strategyTitle }}">
+                    </div>
+                    <div class="section-content">
+                        <h3>{{ $json.strategyTitle }}</h3>
+                        <p>{{ $json.strategyDescription }}</p>
+                        <p style="margin-top: 10px; font-weight: bold; font-size: 0.95rem;">Action Steps:</p>
+                        <ul class="action-list">
+                            <li>{{ $json.strategyAction1 }}</li>
+                            <li>{{ $json.strategyAction2 }}</li>
+                            <li>{{ $json.strategyAction3 }}</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="whats-next-box">
+                    <h3>What's Next?</h3>
+                    <p>
+                        Use this report as a starting point for your entrepreneurial journey.
+                        Reflect on your driver, explore your areas of interest, and take the first
+                        action step from your business strategy. Remember: every successful
+                        entrepreneur started exactly where you are now.
+                    </p>
+                </div>
+
+                <div class="gradient-bar"></div>
+
+                <p class="page-footer">EP2 Entrepreneurial Pursuit Assessment Report</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

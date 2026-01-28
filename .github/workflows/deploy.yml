@@ -1,0 +1,120 @@
+name: Deploy to Server
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy to server via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          password: ${{ secrets.SSH_PASSWORD }}
+          port: ${{ secrets.SSH_PORT || 22 }}
+          script: |
+            set -e
+
+            APP_DIR="/opt/praxiainsights"
+            REPO_URL="https://${{ secrets.GH_PAT }}@github.com/${{ github.repository }}.git"
+
+            echo "=== Setting up app directory ==="
+            mkdir -p $APP_DIR
+            cd $APP_DIR
+
+            # Clone or pull the repository
+            if [ -d ".git" ]; then
+              echo "=== Pulling latest changes ==="
+              git remote set-url origin $REPO_URL
+              git fetch origin main
+              git reset --hard origin/main
+            else
+              echo "=== Cloning repository ==="
+              git clone $REPO_URL .
+            fi
+
+            echo "=== Creating .env file ==="
+            cat > .env << EOF
+            DATABASE_URL=${{ secrets.DATABASE_URL }}
+            NEXT_PUBLIC_BASE_URL=${{ secrets.NEXT_PUBLIC_BASE_URL }}
+            ADMIN_SECRET=${{ secrets.ADMIN_SECRET }}
+            NODE_ENV=production
+            EOF
+
+            # Remove leading whitespace from .env lines
+            sed -i 's/^[[:space:]]*//' .env
+
+            echo "=== Building and starting containers ==="
+            # Stop existing container if running
+            docker compose -f docker-compose.prod.yml down --remove-orphans || true
+
+            # Clean up Docker to save disk space
+            echo "=== Cleaning up Docker cache ==="
+            # Check available disk space
+            AVAIL_GB=$(df / --output=avail -BG | tail -1 | tr -d ' G')
+            echo "Available disk space: ${AVAIL_GB}GB"
+
+            # If less than 10GB available, do aggressive cleanup
+            if [ "$AVAIL_GB" -lt 10 ]; then
+              echo "Low disk space detected, performing aggressive cleanup..."
+              docker system prune -af --volumes || true
+            else
+              # Normal cleanup - remove unused images and build cache
+              docker image prune -af || true
+              docker builder prune -af || true
+            fi
+
+            # Build and start
+            docker compose -f docker-compose.prod.yml build --no-cache
+            docker compose -f docker-compose.prod.yml up -d
+
+            echo "=== Running database migrations ==="
+            # Run prisma db push using a temporary container with Prisma 7
+            docker run --rm \
+              --network n8n_n8n_network \
+              -e DATABASE_URL="${{ secrets.DATABASE_URL }}" \
+              -v "$APP_DIR/prisma:/app/prisma" \
+              -v "$APP_DIR/prisma.config.ts:/app/prisma.config.ts" \
+              -w /app \
+              node:20-alpine \
+              sh -c "npm install prisma@7 @prisma/client@7 @prisma/adapter-pg dotenv && npx prisma db push"
+
+            echo "=== Checking if seed is needed ==="
+            SEED_COUNT=$(docker run --rm \
+              --network n8n_n8n_network \
+              -e DATABASE_URL="${{ secrets.DATABASE_URL }}" \
+              node:20-alpine \
+              sh -c "apk add --no-cache postgresql-client > /dev/null 2>&1 && psql '${{ secrets.DATABASE_URL }}' -t -c 'SELECT count(*) FROM \"ScoringConfig\"' 2>/dev/null || echo 0" | tr -d '[:space:]')
+
+            if [ "$SEED_COUNT" = "0" ] || [ -z "$SEED_COUNT" ]; then
+              echo "=== Seeding scoring config and content ==="
+              docker run --rm \
+                --network n8n_n8n_network \
+                -e DATABASE_URL="${{ secrets.DATABASE_URL }}" \
+                -v "$APP_DIR/prisma:/app/prisma" \
+                -v "$APP_DIR/prisma.config.ts:/app/prisma.config.ts" \
+                -v "$APP_DIR/src:/app/src" \
+                -v "$APP_DIR/package.json:/app/package.json" \
+                -w /app \
+                node:20-alpine \
+                sh -c "npm install prisma@7 @prisma/client@7 @prisma/adapter-pg pg dotenv tsx && npx prisma generate && npx tsx prisma/seed.ts"
+            else
+              echo "=== Seed data already exists (ScoringConfig count: $SEED_COUNT), skipping ==="
+            fi
+
+            echo "=== Health check ==="
+            sleep 3
+            if curl -f http://localhost:3001 > /dev/null 2>&1; then
+              echo "App is running successfully on port 3001"
+            else
+              echo "Warning: Health check failed, checking container logs..."
+              docker compose -f docker-compose.prod.yml logs --tail=50 app
+            fi
+
+            echo "=== Deployment complete ==="
