@@ -278,7 +278,7 @@ const TEST_PRESETS: TestPreset[] = [
   { name: 'African Dog — Low Risk / Low Reward', description: 'Steady, team-oriented, cautious', riskLevel: 'low', rewardLevel: 'low', animal: 'African Dog', tieBreaker: 'C' },
   { name: 'Killer Whale — Low Risk / High Reward', description: 'Strategic planner, high ambition', riskLevel: 'low', rewardLevel: 'high', animal: 'Killer Whale', tieBreaker: 'D' },
   { name: 'Tiger/Lion Tie (test tie-breaker)', description: 'Even split Tiger/Lion — tie-breaker decides', riskLevel: 'high', rewardLevel: 'medium', animal: 'Tiger', tieBreaker: 'B' },
-  { name: 'All Animals Tied (test tie-breaker)', description: 'Even 2-2-2-2 split — tie-breaker decides', riskLevel: 'medium', rewardLevel: 'medium', animal: 'Lion', tieBreaker: 'D' },
+  { name: 'Killer Whale/African Dog Tie (test tie-breaker)', description: 'Even split KW/AD — tie-breaker decides', riskLevel: 'medium', rewardLevel: 'medium', animal: 'Killer Whale', tieBreaker: 'D' },
 ];
 
 function generatePresetAnswers(preset: TestPreset, config: ScoringConfig): Record<string, string> {
@@ -311,10 +311,9 @@ function generatePresetAnswers(preset: TestPreset, config: ScoringConfig): Recor
       const letter = Object.entries(q.optionToAnimal).find(([, a]) => a === target)?.[0] || 'A';
       answers[q.ref] = letter;
     });
-  } else if (preset.name.includes('All Animals Tied')) {
-    const animals = ['African Dog', 'Lion', 'Killer Whale', 'Tiger'];
+  } else if (preset.name.includes('Killer Whale/African Dog Tie')) {
     config.fourTypesQuestions.forEach((q, i) => {
-      const target = animals[i % 4];
+      const target = i < 5 ? 'Killer Whale' : 'African Dog';
       const letter = Object.entries(q.optionToAnimal).find(([, a]) => a === target)?.[0] || 'A';
       answers[q.ref] = letter;
     });
