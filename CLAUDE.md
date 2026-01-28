@@ -2,6 +2,8 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+<!-- Deployment connected: 2026-01-28 -->
+
 ## Project Overview
 
 Praxia Insights is an entrepreneurial assessment platform that processes Typeform survey responses and generates personalized PDF reports.
