@@ -6,7 +6,7 @@ interface WelcomeScreenProps {
 
 export default function WelcomeScreen({ onStart }: WelcomeScreenProps) {
   return (
-    <div className="min-h-screen flex items-center justify-center px-6 py-12">
+    <div className="flex items-center justify-center px-6">
       <div className="max-w-6xl w-full flex flex-col md:flex-row items-center justify-between gap-12">
         {/* Left side - Text content */}
         <div className="flex-1 text-left">
