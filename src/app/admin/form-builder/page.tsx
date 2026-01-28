@@ -685,7 +685,7 @@ export default function FormBuilderPage() {
             Click below to open the assessment form in a new tab.
           </p>
           <a
-            href="/assessment"
+            href="/ep2-assessment"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block px-6 py-3 bg-purple-600 text-white rounded-lg text-sm font-medium hover:bg-purple-700"
@@ -694,7 +694,7 @@ export default function FormBuilderPage() {
           </a>
           <div className="mt-6 border border-gray-200 rounded-lg overflow-hidden">
             <iframe
-              src="/assessment"
+              src="/ep2-assessment"
               className="w-full h-[600px]"
               title="Assessment Preview"
             />
