@@ -58,7 +58,10 @@ export default function AssessmentForm() {
         // Add welcome screen as first step
         flatSteps.push({ type: 'welcome' });
         data.sections.forEach((section, sIdx) => {
-          flatSteps.push({ type: 'section-intro', section, sectionIndex: sIdx });
+          // Skip section intro for first section (tiebreaker) - welcome screen + Q1 text covers it
+          if (sIdx > 0) {
+            flatSteps.push({ type: 'section-intro', section, sectionIndex: sIdx });
+          }
           section.questions.forEach((q) => {
             flatSteps.push({
               type: 'question',
